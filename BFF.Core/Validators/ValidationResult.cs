@@ -13,6 +13,11 @@ namespace BFF.Core.Validators
             Errors = new List<string>();
         }
 
+        public ValidationResult(List<string> erros)
+        {
+            Errors = erros;
+        }
+
         public void AdicionarErro(string erro)
         {
             Errors.Add(erro);
