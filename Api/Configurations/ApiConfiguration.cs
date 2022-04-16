@@ -1,7 +1,9 @@
 ﻿using BFF.Api.Application.Commands.Tarefas.Criar;
+using BFF.Api.Application.ViewModels;
 using BFF.Core.Messages;
-using BFF.Domain.Models;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
+using System.Reflection;
 
 namespace BFF.Api.Configurations
 {
@@ -9,9 +11,8 @@ namespace BFF.Api.Configurations
     {
         public static void AddApiServices(this IServiceCollection services)
         {
-          //  services.AddTransient(typeof(ICommandHandler<>), typeof(CommandHandler<>));
-
-            services.AddTransient<ICommandHandler<CriarTarefaCommand, ResponseMessage<Tarefa>>, CriarTarefaCommandHandler>();
+            services.AddTransient(typeof(IMediatorHandler), typeof(MediatorHandler));
+            services.AddTransient<ICommandHandler<CriarTarefaCommand, ResponseMessage<TarefaViewModel>>, CriarTarefaCommandHandler>();
         }
     }
 }

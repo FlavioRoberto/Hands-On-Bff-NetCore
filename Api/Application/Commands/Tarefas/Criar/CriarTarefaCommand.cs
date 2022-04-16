@@ -1,11 +1,12 @@
-﻿using BFF.Core.Messages;
+﻿using BFF.Api.Application.ViewModels;
+using BFF.Core.Messages;
 using BFF.Core.Validators;
 using System;
 using System.Text.Json.Serialization;
 
 namespace BFF.Api.Application.Commands.Tarefas.Criar
 {
-    public class CriarTarefaCommand : Command
+    public class CriarTarefaCommand : Command<ResponseMessage<TarefaViewModel>>
     {
         [JsonPropertyName("titulo")]
         public string Titulo { get; set; }

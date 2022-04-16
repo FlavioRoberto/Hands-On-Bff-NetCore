@@ -8,6 +8,10 @@ namespace BFF.Core.Messages
         public ValidationResult ValidationResult { get; private set; }
         public T Data { get; set; }
 
+        protected ResponseMessage()
+        {
+        }
+
         public ResponseMessage(ValidationResult validationResult)
         {
             ValidationResult = validationResult;

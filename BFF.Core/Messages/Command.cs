@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace BFF.Core.Messages
 {
-    public abstract class Command
+    public abstract class Command<T> : IRequest<T>
     {
         [JsonIgnore]
         public ValidationResult ValidationResult { get; set; }
